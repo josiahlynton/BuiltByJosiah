@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap');
 
 :root {
     --background: #080f1e;
@@ -46,6 +46,8 @@ textarea {
     margin: auto;
 }
 
+/* HEADER */
+
 .site-header {
     position: sticky;
     top: 0;
@@ -63,14 +65,16 @@ textarea {
     gap: 25px;
 }
 
+/* BUILTBYJOSIAH LOGO */
+
 .logo {
     display: inline-block;
-    font-family: 'Outfit', sans-serif !important;
-    font-size: 1.75rem;
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.55rem;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: 1px;
     color: #ffffff;
-    line-height: 1.2;
+    line-height: 1.4;
     white-space: nowrap;
 }
 
@@ -102,6 +106,8 @@ textarea {
     font-size: 1.7rem;
     cursor: pointer;
 }
+
+/* HERO SECTION */
 
 .hero {
     min-height: 650px;
@@ -192,6 +198,8 @@ textarea {
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
 }
 
+/* GENERAL SECTIONS */
+
 .section {
     padding: 90px 0;
 }
@@ -213,6 +221,8 @@ textarea {
 .portfolio-note {
     color: var(--muted);
 }
+
+/* ABOUT */
 
 .about-content {
     display: grid;
@@ -236,6 +246,8 @@ textarea {
     color: var(--primary-light);
     margin-bottom: 10px;
 }
+
+/* SERVICES, PROCESS, WHY, PORTFOLIO AND PRICING */
 
 .services-grid,
 .process-grid,
@@ -274,6 +286,8 @@ textarea {
     border-color: rgba(57, 133, 255, 0.6);
 }
 
+/* SERVICE CARDS */
+
 .service-icon {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -292,6 +306,8 @@ textarea {
     color: var(--muted);
     font-size: 0.94rem;
 }
+
+/* PORTFOLIO */
 
 .portfolio-image img {
     width: 100%;
@@ -330,6 +346,8 @@ textarea {
     font-size: 0.9rem;
 }
 
+/* PRICING */
+
 .pricing-card {
     padding: 30px;
     position: relative;
@@ -357,6 +375,8 @@ textarea {
     font-weight: 700;
     margin-bottom: 12px;
 }
+
+/* CONTACT */
 
 .contact-content {
     display: grid;
@@ -405,6 +425,8 @@ textarea {
     cursor: pointer;
 }
 
+/* FINAL CALL TO ACTION */
+
 .final-cta {
     text-align: center;
     padding: 65px 20px;
@@ -423,6 +445,8 @@ textarea {
     color: var(--muted);
     margin-bottom: 25px;
 }
+
+/* FOOTER */
 
 .site-footer {
     padding: 55px 0 20px;
@@ -450,6 +474,8 @@ textarea {
     text-align: center;
     font-size: 0.85rem;
 }
+
+/* WHATSAPP FLOATING BUTTON */
 
 .whatsapp-float {
     position: fixed;
@@ -498,6 +524,11 @@ textarea {
 @media (max-width: 700px) {
     .navbar {
         min-height: 70px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        letter-spacing: 0.5px;
     }
 
     .menu-toggle {
