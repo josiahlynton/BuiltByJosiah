@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium real estate website demonstration by BuiltByJosiah.">
+
+    <title>Haven Estates | Real Estate Website Demo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #b68b52;
+            --primary-dark: #8f6938;
+            --dark: #18251f;
+            --text: #66736b;
+            --background: #f8f9f6;
+            --white: #ffffff;
+            --border: #e4e9e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        header {
+            background: var(--dark);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #e1e8e3;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 23px;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(rgba(15, 27, 21, 0.65), rgba(15, 27, 21, 0.72)),
+                url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=85") center/cover;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 90px 0;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: #f0c993;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 20px 0;
+        }
+
+        h1 span {
+            color: #d9b37c;
+        }
+
+        .hero p {
+            max-width: 570px;
+            color: #e5e9e5;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--text);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-content img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text);
+            margin-bottom: 17px;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+        }
+
+        .property-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .property-info {
+            padding: 23px;
+        }
+
+        .property-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .property-info p {
+            color: var(--text);
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+        }
+
+        .property-type {
+            display: inline-block;
+            background: #f2ede5;
+            color: var(--primary-dark);
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .property-link {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .features {
+            background: #edf1eb;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text);
+            margin-top: 10px;
+        }
+
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 45px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .contact-form {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: white;
+            font: inherit;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .contact-form textarea,
+        .contact-form button,
+        .form-note {
+            grid-column: 1 / -1;
+        }
+
+        .contact-form textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: var(--text);
+            font-size: 0.8rem;
+        }
+
+        .cta {
+            padding: 75px 20px;
+            background: var(--dark);
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d2ddd5;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            background: #111b15;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #bdc9c0;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 800px) {
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .property-grid,
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px 17px;
+            }
+
+            nav a {
+                font-size: 0.82rem;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .property-grid,
+            .features-grid,
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form textarea,
+            .contact-form button,
+            .form-note {
+                grid-column: auto;
+            }
+
+            .about-content img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a href="#home" class="logo">
+                Haven<span>Estates</span>
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#properties">Properties</a>
+                <a href="#features">Why Us</a>
+                <a href="#contact">Contact</a>
+                <a href="../index.html">BuiltByJosiah</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <span class="hero-label">
+                    Discover Your Next Home
+                </span>
+
+                <h1>
+                    Find A Place
+                    <span>To Call Home.</span>
+                </h1>
+
+                <p>
+                    Welcome to Haven Estates, a real estate website
+                    demonstration showcasing residential properties,
+                    property information and enquiry features.
+                </p>
+
+                <a href="#properties" class="button">
+                    Explore Properties
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-content">
+
+                <div>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                        alt="Modern residential property interior">
+                </div>
+
+                <div class="about-text">
+
+                    <h2>About Haven Estates</h2>
+
+                    <p>
+                        Haven Estates is a fictional real estate brand
+                        created as a demonstration project for
+                        the BuiltByJosiah portfolio.
+                    </p>
+
+                    <p>
+                        This website concept demonstrates how a property
+                        business can present homes, showcase property
+                        features and make it easier for visitors
+                        to enquire about available properties.
+                    </p>
+
+                    <p>
+                        The design focuses on attractive property images,
+                        clear information and simple navigation.
+                    </p>
+
+                    <a href="#properties" class="button">
+                        View Properties
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- PROPERTIES -->
+        <section class="section" id="properties">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Featured Properties</h2>
+                    <p>
+                        Explore sample property listings presented
+                        in this real estate website concept.
+                    </p>
+                </div>
+
+                <div class="property-grid">
+
+                    <article class="property-card">
+
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85"
+                            alt="Modern luxury family house">
+
+                        <div class="property-info">
+                            <span class="property-type">Residential</span>
+
+                            <h3>Modern Family Home</h3>
+
+                            <p>
+                                A contemporary home design featuring
+                                spacious living areas and modern finishes.
+                            </p>
+
+                            <a href="#contact" class="property-link">
+                                Enquire About Property →
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="property-card">
+
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
+                            alt="Elegant apartment interior">
+
+                        <div class="property-info">
+                            <span class="property-type">Apartment</span>
+
+                            <h3>Elegant City Apartment</h3>
+
+                            <p>
+                                A stylish apartment concept with
+                                comfortable interiors and modern design.
+                            </p>
+
+                            <a href="#contact" class="property-link">
+                                Enquire About Property →
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="property-card">
+
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85"
+                            alt="Contemporary residential property">
+
+                        <div class="property-info">
+                            <span class="property-type">Luxury</span>
+
+                            <h3>Contemporary Residence</h3>
+
+                            <p>
+                                A premium residential property concept
+                                with an attractive modern appearance.
+                            </p>
+
+                            <a href="#contact" class="property-link">
+                                Enquire About Property →
+                            </a>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="section features" id="features">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Why Explore Haven Estates?</h2>
+                    <p>
+                        A clear and organised property browsing experience.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🏡</div>
+                        <h3>Property Variety</h3>
+                        <p>
+                            A sample collection of different
+                            residential property styles.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">📸</div>
+                        <h3>Visual Listings</h3>
+                        <p>
+                            Property photography and descriptions
+                            that make listings easy to explore.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Easy Enquiries</h3>
+                        <p>
+                            A simple enquiry form for visitors
+                            interested in a property.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact">
+            <div class="container contact-content">
+
+                <div class="contact-info">
+
+                    <h2>Interested In A Property?</h2>
+
+                    <p>
+                        Use the demonstration enquiry form to explore
+                        how visitors can contact a real estate business
+                        about a property.
+                    </p>
+
+                    <p>
+                        This is a fictional real estate website concept.
+                        No property is actually being offered for sale
+                        or rent through this demonstration.
+                    </p>
+
+                    <p>
+                        <strong>Website design:</strong><br>
+                        BuiltByJosiah
+                    </p>
+
+                </div>
+
+                <form class="contact-form" id="property-form">
+
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+                    <select name="property" required>
+                        <option value="">Select Property</option>
+                        <option>Modern Family Home</option>
+                        <option>Elegant City Apartment</option>
+                        <option>Contemporary Residence</option>
+                    </select>
+
+                    <select name="interest" required>
+                        <option value="">Select Your Interest</option>
+                        <option>Buying</option>
+                        <option>Renting</option>
+                        <option>General Enquiry</option>
+                    </select>
+
+                    <textarea name="message" placeholder="Tell us more about your enquiry..."></textarea>
+
+                    <p class="form-note">
+                        Demonstration only. Do not enter real personal information.
+                    </p>
+
+                    <button type="submit" class="button">
+                        Submit Demo Enquiry
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+            <div class="container">
+
+                <h2>Your Next Digital Project Starts Here.</h2>
+
+                <p>
+                    This real estate website concept was created
+                    for the BuiltByJosiah portfolio.
+                </p>
+
+                <a href="../index.html" class="button">
+                    Visit BuiltByJosiah
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <h2 class="logo">Haven<span>Estates</span></h2>
+
+            <p>
+                A fictional real estate website demonstration.
+            </p>
+
+            <p>
+                Website concept by BuiltByJosiah.
+            </p>
+
+            <p>
+                &copy; 2026 BuiltByJosiah. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <!-- DEMONSTRATION FORM SCRIPT -->
+    <script>
+        const propertyForm = document.getElementById("property-form");
+
+        propertyForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            alert(
+                "Thank you! This is a demonstration form. " +
+                "No property enquiry was sent."
+            );
+
+            propertyForm.reset();
+        });
+    </script>
+
+</body>
+
+</html>

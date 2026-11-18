@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern restaurant website demonstration by BuiltByJosiah.">
+    <title>Urban Taste | Restaurant Website Demo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #c47b36;
+            --primary-dark: #96551f;
+            --dark: #211b17;
+            --text: #665b52;
+            --background: #faf7f2;
+            --white: #ffffff;
+            --border: #e9e0d6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(33, 27, 23, 0.97);
+            color: white;
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            color: #e9ded4;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 13px 23px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            min-height: 610px;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(rgba(25, 18, 13, 0.7), rgba(25, 18, 13, 0.75)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85") center/cover;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding: 90px 0;
+        }
+
+        .hero-label {
+            color: #f2bd83;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 20px 0;
+        }
+
+        h1 span {
+            color: #e4a363;
+        }
+
+        .hero p {
+            max-width: 570px;
+            color: #eee2d8;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--text);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-content img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+        }
+
+        .menu-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-info {
+            padding: 23px;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .menu-info p {
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        .features {
+            background: #f1e9df;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text);
+            margin-top: 10px;
+        }
+
+        .reservation {
+            background: white;
+        }
+
+        .reservation-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 45px;
+        }
+
+        .reservation-info h2 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+        }
+
+        .reservation-info p {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .reservation-form {
+            padding: 30px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .reservation-form input,
+        .reservation-form select,
+        .reservation-form textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: white;
+            font: inherit;
+            outline: none;
+        }
+
+        .reservation-form input:focus,
+        .reservation-form select:focus,
+        .reservation-form textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .reservation-form textarea,
+        .reservation-form button,
+        .form-note {
+            grid-column: 1 / -1;
+        }
+
+        .reservation-form textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: var(--text);
+            font-size: 0.8rem;
+        }
+
+        .cta {
+            padding: 75px 20px;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d5c8bd;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            background: #17120f;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #c5b8ac;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 800px) {
+
+            .about-content,
+            .reservation-content {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid,
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px 17px;
+            }
+
+            nav a {
+                font-size: 0.82rem;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .menu-grid,
+            .features-grid,
+            .reservation-form {
+                grid-template-columns: 1fr;
+            }
+
+            .reservation-form textarea,
+            .reservation-form button,
+            .form-note {
+                grid-column: auto;
+            }
+
+            .about-content img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a href="#home" class="logo">
+                Urban<span>Taste</span>
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#features">Why Us</a>
+                <a href="#reservation">Reservation</a>
+                <a href="../index.html">BuiltByJosiah</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <span class="hero-label">
+                    Good Food. Great Moments.
+                </span>
+
+                <h1>
+                    Experience The
+                    <span>Joy Of Good Food.</span>
+                </h1>
+
+                <p>
+                    Welcome to Urban Taste, a restaurant website
+                    demonstration showcasing a modern dining experience,
+                    food menu and reservation enquiry system.
+                </p>
+
+                <a href="#menu" class="button">
+                    Explore Our Menu
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-content">
+
+                <div>
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
+                        alt="Beautifully presented restaurant dining experience">
+                </div>
+
+                <div class="about-text">
+                    <h2>A Taste Worth Remembering</h2>
+
+                    <p>
+                        Urban Taste is a fictional restaurant brand
+                        developed as a portfolio demonstration.
+                    </p>
+
+                    <p>
+                        This website concept shows how a restaurant
+                        can introduce its atmosphere, display its menu
+                        and make it easier for customers to enquire
+                        about reservations.
+                    </p>
+
+                    <p>
+                        The design combines warm colours, appealing
+                        food photography and simple navigation.
+                    </p>
+
+                    <a href="#reservation" class="button">
+                        Make an Enquiry
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MENU -->
+        <section class="section" id="menu">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Explore Our Menu</h2>
+                    <p>
+                        A sample selection of dishes featured
+                        in this restaurant website concept.
+                    </p>
+                </div>
+
+                <div class="menu-grid">
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=85"
+                            alt="Fresh salad dish">
+
+                        <div class="menu-info">
+                            <h3>Fresh Garden Bowl</h3>
+                            <p>
+                                A colourful combination of fresh
+                                vegetables and seasonal ingredients.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85"
+                            alt="Pizza dish">
+
+                        <div class="menu-info">
+                            <h3>Signature Pizza</h3>
+                            <p>
+                                A classic pizza concept with
+                                delicious toppings and rich flavours.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                            alt="Burger dish">
+
+                        <div class="menu-info">
+                            <h3>Classic Burger</h3>
+                            <p>
+                                A popular dining favourite
+                                presented in a modern menu layout.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85"
+                            alt="Pasta dish">
+
+                        <div class="menu-info">
+                            <h3>Italian Pasta</h3>
+                            <p>
+                                A comforting pasta dish inspired
+                                by classic Italian cuisine.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
+                            alt="Dessert">
+
+                        <div class="menu-info">
+                            <h3>Sweet Dessert</h3>
+                            <p>
+                                A delicious dessert concept
+                                to complete the dining experience.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+                            alt="Refreshing beverage">
+
+                        <div class="menu-info">
+                            <h3>Refreshing Drinks</h3>
+                            <p>
+                                A selection of refreshing beverage
+                                ideas for the sample menu.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="section features" id="features">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Why Choose Urban Taste?</h2>
+                    <p>
+                        A restaurant experience built around
+                        quality, atmosphere and memorable moments.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🍽️</div>
+                        <h3>Menu Variety</h3>
+                        <p>
+                            A sample menu layout that makes
+                            food options easy to explore.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Welcoming Atmosphere</h3>
+                        <p>
+                            A warm visual design that introduces
+                            the restaurant's identity.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">📅</div>
+                        <h3>Easy Enquiries</h3>
+                        <p>
+                            A simple reservation enquiry
+                            form for website visitors.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- RESERVATION -->
+        <section class="section reservation" id="reservation">
+            <div class="container reservation-content">
+
+                <div class="reservation-info">
+                    <h2>Make a Reservation Enquiry</h2>
+
+                    <p>
+                        Planning a meal or a special occasion?
+                        Use the demonstration form to explore
+                        how an online reservation system can look.
+                    </p>
+
+                    <p>
+                        This is a fictional restaurant concept.
+                        The form does not make real reservations
+                        or send customer information.
+                    </p>
+
+                    <p>
+                        <strong>Website design:</strong><br>
+                        BuiltByJosiah
+                    </p>
+                </div>
+
+                <form class="reservation-form" id="reservation-form">
+
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+                    <input type="date" name="date" required>
+
+                    <select name="guests" required>
+                        <option value="">Number of Guests</option>
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4 Guests</option>
+                        <option>5 Guests</option>
+                        <option>6+ Guests</option>
+                    </select>
+
+                    <textarea name="message" placeholder="Additional information (optional)"></textarea>
+
+                    <p class="form-note">
+                        Demonstration only. Do not enter real personal information.
+                    </p>
+
+                    <button type="submit" class="button">
+                        Submit Demo Enquiry
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+            <div class="container">
+
+                <h2>Good Food Brings People Together.</h2>
+
+                <p>
+                    This restaurant website concept was created
+                    for the BuiltByJosiah portfolio.
+                </p>
+
+                <a href="../index.html" class="button">
+                    Visit BuiltByJosiah
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <h2 class="logo">Urban<span>Taste</span></h2>
+
+            <p>
+                A fictional restaurant website demonstration.
+            </p>
+
+            <p>
+                Website concept by BuiltByJosiah.
+            </p>
+
+            <p>
+                &copy; 2026 BuiltByJosiah. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <!-- DEMONSTRATION FORM SCRIPT -->
+    <script>
+        const reservationForm =
+            document.getElementById("reservation-form");
+
+        reservationForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            alert(
+                "Thank you! This is a demonstration form. " +
+                "No reservation has been made and no information was sent."
+            );
+
+            reservationForm.reset();
+        });
+    </script>
+
+</body>
+
+</html>
