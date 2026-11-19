@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -48,10 +47,58 @@
             color: inherit;
         }
 
+        button, input, select, textarea {
+            font: inherit;
+        }
+
         .container {
             width: min(1120px, 90%);
             margin: auto;
         }
+
+        /* BACK NAVIGATION */
+
+        .demo-navigation {
+            width: min(1120px, 90%);
+            margin: 18px auto;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .demo-navigation button,
+        .demo-navigation a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 19px;
+            border-radius: 7px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .demo-navigation button {
+            background: white;
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+
+        .demo-navigation a {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .demo-navigation button:hover,
+        .demo-navigation a:hover {
+            transform: translateY(-2px);
+            opacity: 0.85;
+        }
+
+        /* HEADER */
 
         header {
             background: var(--dark);
@@ -112,6 +159,8 @@
             transform: translateY(-3px);
         }
 
+        /* HERO */
+
         .hero {
             min-height: 620px;
             display: flex;
@@ -136,9 +185,7 @@
             text-transform: uppercase;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-family: 'Outfit', sans-serif;
             line-height: 1.2;
         }
@@ -158,6 +205,8 @@
             margin-bottom: 30px;
         }
 
+        /* GENERAL SECTIONS */
+
         .section {
             padding: 85px 0;
         }
@@ -176,6 +225,8 @@
         .section-heading p {
             color: var(--text);
         }
+
+        /* ABOUT */
 
         .about-content {
             display: grid;
@@ -200,6 +251,8 @@
             color: var(--text);
             margin-bottom: 17px;
         }
+
+        /* PROPERTIES */
 
         .property-grid {
             display: grid;
@@ -257,6 +310,8 @@
             font-weight: 700;
         }
 
+        /* FEATURES */
+
         .features {
             background: #edf1eb;
         }
@@ -283,6 +338,8 @@
             color: var(--text);
             margin-top: 10px;
         }
+
+        /* CONTACT */
 
         .contact {
             background: white;
@@ -322,7 +379,6 @@
             border: 1px solid var(--border);
             border-radius: 6px;
             background: white;
-            font: inherit;
             outline: none;
         }
 
@@ -348,6 +404,8 @@
             font-size: 0.8rem;
         }
 
+        /* CALL TO ACTION */
+
         .cta {
             padding: 75px 20px;
             background: var(--dark);
@@ -365,6 +423,8 @@
             margin-bottom: 25px;
         }
 
+        /* FOOTER */
+
         footer {
             background: #111b15;
             color: white;
@@ -378,8 +438,9 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 800px) {
+        /* TABLETS */
 
+        @media (max-width: 800px) {
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
@@ -396,6 +457,8 @@
                 justify-content: flex-end;
             }
         }
+
+        /* MOBILE */
 
         @media (max-width: 600px) {
             .navbar {
@@ -435,11 +498,28 @@
             .about-content img {
                 height: 280px;
             }
+
+            .demo-navigation {
+                width: 90%;
+                gap: 9px;
+            }
+
+            .demo-navigation button,
+            .demo-navigation a {
+                padding: 9px 14px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- BACK NAVIGATION -->
+    <div class="demo-navigation">
+        <button type="button" onclick="goBack()">← Back</button>
+        <a href="../index.html#portfolio">Back to Portfolio</a>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -460,7 +540,6 @@
 
         </div>
     </header>
-
 
     <main>
 
@@ -489,7 +568,6 @@
 
             </div>
         </section>
-
 
         <!-- ABOUT -->
         <section class="section" id="about">
@@ -531,7 +609,6 @@
             </div>
         </section>
 
-
         <!-- PROPERTIES -->
         <section class="section" id="properties">
             <div class="container">
@@ -568,7 +645,6 @@
 
                     </article>
 
-
                     <article class="property-card">
 
                         <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
@@ -590,7 +666,6 @@
                         </div>
 
                     </article>
-
 
                     <article class="property-card">
 
@@ -618,7 +693,6 @@
 
             </div>
         </section>
-
 
         <!-- FEATURES -->
         <section class="section features" id="features">
@@ -663,7 +737,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- CONTACT -->
         <section class="section contact" id="contact">
@@ -727,7 +800,6 @@
             </div>
         </section>
 
-
         <!-- CALL TO ACTION -->
         <section class="cta">
             <div class="container">
@@ -747,7 +819,6 @@
         </section>
 
     </main>
-
 
     <!-- FOOTER -->
     <footer>
@@ -770,9 +841,16 @@
         </div>
     </footer>
 
-
-    <!-- DEMONSTRATION FORM SCRIPT -->
+    <!-- DEMONSTRATION FORM AND BACK BUTTON SCRIPTS -->
     <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "../index.html";
+            }
+        }
+
         const propertyForm = document.getElementById("property-form");
 
         propertyForm.addEventListener("submit", function (event) {
